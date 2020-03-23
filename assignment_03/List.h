@@ -10,13 +10,13 @@ class List{
  public:
   List();
   ~List();
-  void insert(std::string data);
-  void pushback(std::string s);
+  void insert(int data);
+  void pushback(int s);
   std::string getDebugString();
   int length();
   void remove(int i);
-  std::string operator[](int i);
-  // void number_list(int num); 
+  int operator[](int i);
+  // void number_list(int num);
 
 
 };
