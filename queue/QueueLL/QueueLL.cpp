@@ -45,7 +45,7 @@ void QueueLL::enqueue(int data){
 
 int QueueLL::dequeue(){
   if(len == 0){
-    throw EMPTY_QUEUE; 
+    throw EMPTY_QUEUE;
   }
   Node *t = head;
   int ret = t->getData();
@@ -57,7 +57,7 @@ int QueueLL::dequeue(){
 }
 
 bool QueueLL::is_empty(){
-  return (len ==0);
+  return (head== nullptr);
 }
 std::string QueueLL::getDebugString(){
   Node *t;
