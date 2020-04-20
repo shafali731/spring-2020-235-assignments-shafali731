@@ -8,28 +8,36 @@ BSTree::BSTree(){
 }
 
 void BSTree::insert(int d){
-  // Node* temp = root;
-  // Node * n = new Node(d);
-  // if(temp->getLeft() == nullptr && temp->getRight()== nullptr){ // if there are no children
-  //   temp->setLeft(n);
-  // }
-  // else if(temp->getLeft() == nullptr && temp->getRight()!= nullptr){ // if only has a right child
-  //   temp->setLeft(n);
-  // }
-  // else if(temp->getLeft() != nullptr && temp->getRight()== nullptr){ // if only has a left child
-  //   temp->setRight(n);
-  // }
-  // else{
-  //   while(temp->getLeft() != nullptr && temp->getRight() != nullptr){
-  //     temp->setLeft(n);
-  //   }
-  //   while(temp->getLeft() != nullptr && temp->getRight() == nullptr){
-  //     temp->setRight(n);
-  //   }
-  //   while(temp->getLeft() == nullptr && temp->getRight() == nullptr){
-  //
-  //   }
+  // insert new nodes as a leaf
+  // std::cout << "auhfiuhe" << '\n';
+  Node *n = new Node(d);
+
+  if (root==nullptr){
+    root = n;
+    return;
+    }
+  insert_help(root, d);
+  }
+void BSTree::insert_help(Node * c, int val){
+    Node *n=new Node(val);
+    if(c->getData()>val){
+      if(c->getLeft()==nullptr){
+         c->setLeft(n);
+      }
+      else{
+         return insert_help(c->getLeft(),val);
+      }
+   }
+   else{
+      if(c->getRight()==nullptr){
+         c->setRight(n);
+      }
+      else{
+         return insert_help(c->getRight(),val);
+      }
+  }
 }
+
 std::string BSTree::get_debug_string_helper(Node * n){
   if(n == nullptr){
     return "";
