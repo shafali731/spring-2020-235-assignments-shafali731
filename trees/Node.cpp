@@ -47,12 +47,12 @@ Node* Node::getLeft(){
 Node* Node::getRight(){
   return right;
 }
-void Node::setData(int data){
-  data = data;
+void Node::setData(int d){
+  data = d;
 }
 void Node::setLeft(Node * l){
   left = l;
 }
 void Node::setRight(Node* r){
-  right = r; 
+  right = r;
 }

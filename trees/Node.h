@@ -12,7 +12,7 @@ public:
   int getData();
   Node * getLeft();
   Node * getRight();
-  void setData(int data);
+  void setData(int d);
   void setLeft(Node * l );
   void setRight(Node * r);
 
