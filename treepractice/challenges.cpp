@@ -60,3 +60,21 @@ int sum_at_level(Node * n, int level){
     return sum_at_level(n->getLeft(), level-1) + sum_at_level(n->getRight(), level-1);
   }
 }
+
+int root_to_leaf(Node *n){
+  if (n == nullptr){
+      return 0;
+    }
+  int left = root_to_leaf(n->getLeft());
+  int right = root_to_leaf(n->getRight());
+  int path;
+
+  if (right > left){
+    path = right;
+  }
+  else {
+    path = left;
+  }
+
+  return n->getData() + path;
+}

@@ -13,8 +13,9 @@ int main(){
   Node* a = s->getRoot();
   std::cout << num_nodes(a) << '\n';
   std::cout << sum_nodes(a) << '\n';
-  std::cout << num_leaves(a) << '\n';
   std::cout << height(a) << '\n';
   std::cout << sum_at_level(a, 1) << '\n';
+  std::cout << root_to_leaf(a) << '\n';
+
   return 0;
 }
