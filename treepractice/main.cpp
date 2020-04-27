@@ -11,5 +11,6 @@ int main(){
   std::cout<<s->get_debug_string()<<"\n";
   Node* a = s->getRoot();
   std::cout << num_nodes(a) << '\n';
+  std::cout << sum_nodes(a) << '\n';
   return 0;
 }
