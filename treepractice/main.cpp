@@ -15,5 +15,6 @@ int main(){
   std::cout << sum_nodes(a) << '\n';
   std::cout << num_leaves(a) << '\n';
   std::cout << height(a) << '\n';
+  std::cout << sum_at_level(a, 1) << '\n';
   return 0;
 }

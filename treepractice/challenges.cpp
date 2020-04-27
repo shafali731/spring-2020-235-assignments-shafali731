@@ -46,5 +46,17 @@ int height(Node * n){
   else{
     height = left;
   }
-  return 1 + height; 
+  return 1 + height;
+}
+
+int sum_at_level(Node * n, int level){
+  if(n == nullptr){
+    return 0;
+  }
+  if(level == 0){
+    return n->getData();
+  }
+  else{
+    return sum_at_level(n->getLeft(), level-1) + sum_at_level(n->getRight(), level-1);
+  }
 }
