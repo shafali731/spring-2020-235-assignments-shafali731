@@ -22,19 +22,22 @@ int sum_nodes(Node * n){
 }
 
 int num_leaves(Node * n){
+  if(n==nullptr){
+    return 0; 
+  }
   if(n->getLeft() == nullptr && n->getRight() == nullptr){
     return 1;
   }
-  else{
-    if(n->getLeft() == nullptr){
-      return num_leaves(n->getRight());
-    }
-    else if(n->getRight() == nullptr){
-      return num_leaves(n->getLeft());
-    }
+  // else{
+  //   if(n->getLeft() == nullptr){
+  //     return num_leaves(n->getRight());
+  //   }
+  //   else if(n->getRight() == nullptr){
+  //     return num_leaves(n->getLeft());
+  //   }
     else{
       return num_leaves(n->getLeft()) + num_leaves(n->getRight());
     }
-  }
+  // }
 
 }
