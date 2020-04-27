@@ -6,6 +6,10 @@
 BSTree::BSTree(){
   root = nullptr;
 }
+Node * BSTree::getRoot(){
+  return root;
+}
+
 
 void BSTree::insert(int d){
   // insert new nodes as a leaf
@@ -45,7 +49,6 @@ std::string BSTree::get_debug_string_helper(Node * n){
 }
 std::string BSTree::gds_helper(Node *n){
   std::string a,b,c;
-
   if (n==nullptr){
     return "";
   } else {
@@ -53,8 +56,6 @@ std::string BSTree::gds_helper(Node *n){
     b = std::to_string(n->getData());
     c =  gds_helper(n->getRight());
     return a + ", " + b+ ", " + c;
-
-
   }
 }
 std::string BSTree::get_debug_string(){
@@ -63,17 +64,8 @@ std::string BSTree::get_debug_string(){
     return "";
   }
   else{
-    // return get_debug_string_helper(root);
     return gds_helper(root);
   }
-  // ret +=  " " + std::to_string(root->getData()) + "\n";
-  // if (root->getLeft() != nullptr){
-  //    ret += std::to_string(root->getLeft()->getData()) + " ";
-  // }
-  // if (root->getRight() != nullptr){
-  //      ret += std::to_string(root->getRight()->getData()) + " ";
-  //   }
-  //   return ret;
 }
 void BSTree::setup(){
   Node *n = new Node(10);
@@ -100,7 +92,6 @@ void BSTree::delete_h(Node *n,int value){
   Node *t2 = nullptr;
   while (t!=nullptr && t->getData()  != value){ // t is the value u want to remove, t2 is the parent
     t2 = t;
-
     if (t->getData() < value)
       t = t->getRight();
     else
@@ -132,8 +123,6 @@ void BSTree::delete_h(Node *n,int value){
         temp = t->getRight();
         t2->setRight(temp);
       }
-
-      // t->setLeft(nullptr);
       delete t;
     }
     else{ // if t is to the left of the parent node
@@ -151,7 +140,6 @@ void BSTree::delete_h(Node *n,int value){
     }
   else{
    //get the largest on left subtree
-
       Node * temp = t->getLeft();
       while(temp != nullptr && temp->getRight()!= nullptr){
         temp = temp->getRight();
