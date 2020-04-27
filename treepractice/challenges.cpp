@@ -23,21 +23,28 @@ int sum_nodes(Node * n){
 
 int num_leaves(Node * n){
   if(n==nullptr){
-    return 0; 
+    return 0;
   }
   if(n->getLeft() == nullptr && n->getRight() == nullptr){
     return 1;
   }
-  // else{
-  //   if(n->getLeft() == nullptr){
-  //     return num_leaves(n->getRight());
-  //   }
-  //   else if(n->getRight() == nullptr){
-  //     return num_leaves(n->getLeft());
-  //   }
-    else{
-      return num_leaves(n->getLeft()) + num_leaves(n->getRight());
-    }
-  // }
+  else{
+    return num_leaves(n->getLeft()) + num_leaves(n->getRight());
+  }
+}
 
+int height(Node * n){
+  if(n==nullptr){
+    return 0;
+  }
+  int right = height(n->getRight());
+  int left = height(n->getLeft());
+  int height;
+  if (right> left){
+    height = right;
+  }
+  else{
+    height = left;
+  }
+  return 1 + height; 
 }
