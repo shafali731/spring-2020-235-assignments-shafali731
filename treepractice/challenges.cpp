@@ -20,3 +20,21 @@ int sum_nodes(Node * n){
     return n->getData() + sum_nodes(n->getLeft()) + sum_nodes(n->getRight());
   }
 }
+
+int num_leaves(Node * n){
+  if(n->getLeft() == nullptr && n->getRight() == nullptr){
+    return 1;
+  }
+  else{
+    if(n->getLeft() == nullptr){
+      return num_leaves(n->getRight());
+    }
+    else if(n->getRight() == nullptr){
+      return num_leaves(n->getLeft());
+    }
+    else{
+      return num_leaves(n->getLeft()) + num_leaves(n->getRight());
+    }
+  }
+
+}
